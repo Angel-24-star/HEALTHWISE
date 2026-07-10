@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VitaGreen Moringa Complex — Daily Botanical Support</title>
+    <meta
+      name="description"
+      content="VitaGreen Moringa Complex — clinically-informed daily botanical supplement."
+    />
+
+    <!-- ============================================================
+     FONTS
+     Display: Fraunces (characterful serif — apothecary/label feel)
+     Body: Public Sans (clean, trustworthy, highly readable)
+     Utility/Data: IBM Plex Mono (used for countdown + facts panel,
+       echoing the numeric look of a real supplement label)
+     ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ================================================================
+     CONFIG — everything you need to change per product lives above
+     the markup that uses it. Duplicate this file per product and
+     edit only the values below plus the RANGE_PRODUCTS array.
+     ================================================================ -->
+    <script>
+      window.PRODUCT_CONFIG = {
+        name: "VitaGreen Moringa Complex",
+        tagline: "Daily botanical support, made from real leaf — not fillers.",
+        slug: "vitagreen-moringa-complex",
+        price: "₦12,500",
+        // Countdown target — set this to the promo end date/time (client's local time).
+        promoEndsISO: "2026-07-13T23:59:00",
+        // Media — replace with real hosted files (mp4 recommended for autoplay reliability).
+        productVideo: "videos/vitagreen-demo.mp4",
+        productImage: "images/vitagreen-bottle.jpg",
+        // Systeme.io — replace once the client's Inline Form export gives you
+        // the real action URL and field names.
+        formActionURL: "https://systeme.io/YOUR-FORM-ACTION-URL-HERE",
+      };
+
+      // Cross-sell grid — the other 1-4 products, each linking to its own
+      // landing page file (e.g. vitagreen-omega.html).
+      window.RANGE_PRODUCTS = [
+        {
+          name: "VitaGreen Omega Marine",
+          price: "₦14,000",
+          image: "images/omega.jpg",
+          href: "vitagreen-omega.html",
+        },
+        {
+          name: "VitaGreen Iron & Folate",
+          price: "₦9,800",
+          image: "images/iron.jpg",
+          href: "vitagreen-iron.html",
+        },
+        {
+          name: "VitaGreen Probiotic 10B",
+          price: "₦13,200",
+          image: "images/probiotic.jpg",
+          href: "vitagreen-probiotic.html",
+        },
+        {
+          name: "VitaGreen Sleep & Calm",
+          price: "₦11,000",
+          image: "images/sleep.jpg",
+          href: "vitagreen-sleep.html",
+        },
+      ];
+    </script>
+
+    <!-- ================================================================
+     VIDEO MODAL — shown once per session on entry
+     ================================================================ -->
+    <div
+      class="modal-overlay"
+      id="videoModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Product introduction video"
+    >
+      <div class="modal-box">
+        <div class="modal-video-wrap">
+          <video
+            id="modalVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="images/vitagreen-bottle.jpg"
+          >
+            <source src="videos/vitagreen-demo.mp4" type="video/mp4" />
+          </video>
+          <button
+            type="button"
+            class="modal-unmute"
+            id="unmuteBtn"
+            aria-pressed="false"
+          >
+            🔇 Tap for sound
+          </button>
+          <button
+            type="button"
+            class="modal-close"
+            id="closeModal"
+            aria-label="Close video"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="modal-footer">
+          <p>
+            See how VitaGreen Moringa Complex fits into a daily routine — 40
+            seconds.
+          </p>
+          <a href="#" class="btn btn-primary" id="modalCta">Shop now</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site">
+      <div class="wrap site-bar">
+        <div class="brand">Vita<span>Green</span></div>
+        <nav class="site">
+          <a href="#video">Watch</a>
+          <a href="#facts">Benefits</a>
+          <a href="#get-it">Order</a>
+          <a href="#range">Full Range</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================================================================
+     HERO
+     ================================================================ -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow" id="eyebrowLabel">Limited Batch Promo</div>
+        <h1 id="productName">VitaGreen Moringa Complex</h1>
+        <p class="lede" id="productTagline">
+          Daily botanical support, made from real leaf — not fillers.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#get-it" class="btn btn-primary">Reserve at promo price</a>
+          <a href="#video" class="btn btn-ghost">Watch the 40s overview</a>
+        </div>
+        <div class="trust-row">
+          <span>NAFDAC-REG READY</span>
+          <span>THIRD-PARTY TESTED</span>
+          <span>30-DAY SUPPLY</span>
+        </div>
+
+        <div class="countdown-bar">
+          <span class="cb-label">Promo price ends in</span>
+          <div class="cb-digits" id="countdownBar">
+            <div>
+              <span class="n" id="cb-d">00</span><span class="u">days</span>
+            </div>
+            <div>
+              <span class="n" id="cb-h">00</span><span class="u">hrs</span>
+            </div>
+            <div>
+              <span class="n" id="cb-m">00</span><span class="u">min</span>
+            </div>
+            <div>
+              <span class="n" id="cb-s">00</span><span class="u">sec</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="product-frame">
+          <img
+            src="images/vitagreen-bottle.jpg"
+            alt="VitaGreen Moringa Complex bottle"
+            id="heroProductImage"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'block';
+            "
+          />
+          <p class="placeholder-note" style="display: none">
+            Replace<br />images/vitagreen-bottle.jpg<br />with the real product
+            photo
+          </p>
+        </div>
+        <div class="expiry-stamp">
+          <div class="expiry-inner">
+            <span class="label">Offer expires</span>
+            <span class="clock" id="stampClock">00:00:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+     VIDEO (in-page, reachable via nav + hero link)
+     ================================================================ -->
+    <section class="video-section" id="video">
+      <div class="section-head">
+        <div class="eyebrow">See it in use</div>
+        <h2>Forty seconds, no fluff.</h2>
+        <p>
+          What's inside, how to take it, and what changes in the first two
+          weeks.
+        </p>
+      </div>
+      <div class="video-frame">
+        <!-- biome-ignore lint/a11y/useMediaCaption: No media caption needed -->
+        <video controls playsinline poster="images/vitagreen-bottle.jpg">
+          <source src="videos/vitagreen-demo.mp4" type="video/mp4" />
+        </video>
+        <span class="vf-caption"
+          >VitaGreen Moringa Complex — Product Overview</span
+        >
+      </div>
+    </section>
+
+    <!-- ================================================================
+     BENEFITS / SUPPLEMENT-FACTS PANEL
+     ================================================================ -->
+    <section class="facts-section" id="facts">
+      <div class="section-head">
+        <div class="eyebrow">What it does</div>
+        <h2>Built around one leaf, not a long ingredient list.</h2>
+      </div>
+      <div class="facts-grid">
+        <div class="facts-panel">
+          <h3>Supplement Facts</h3>
+          <div class="facts-row">
+            <span>Serving size</span><span>2 capsules</span>
+          </div>
+          <div class="facts-row">
+            <span>Servings per bottle</span><span>30</span>
+          </div>
+          <div class="facts-row">
+            <span>Moringa oleifera leaf extract</span><span>600 mg</span>
+          </div>
+          <div class="facts-row"><span>Vitamin C</span><span>45 mg</span></div>
+          <div class="facts-row"><span>Iron</span><span>4 mg</span></div>
+          <div class="facts-row" style="border-bottom: none">
+            <span>Other ingredients</span><span>Vegetable capsule</span>
+          </div>
+        </div>
+        <div class="benefit-list">
+          <div class="item">
+            <span class="bullet"></span>
+            <div>
+              <h4>Steady daily energy</h4>
+              <p>
+                Leaf-based micronutrients absorbed gradually — no caffeine-style
+                crash.
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="bullet"></span>
+            <div>
+              <h4>Everyday immune support</h4>
+              <p>
+                Vitamin C and antioxidant compounds naturally present in the
+                leaf.
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <span class="bullet"></span>
+            <div>
+              <h4>Simple to keep up</h4>
+              <p>
+                Two capsules, once a day — a routine that survives a busy week.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+     LEAD FORM
+     Submits directly to the client's Systeme.io leads list via the
+     form's action URL — see PRODUCT_CONFIG.formActionURL above.
+     Field `name` attributes must match what Systeme.io's Inline Form
+     export expects (confirm exact names once the client shares hers;
+     email/first_name are the common defaults).
+     ================================================================ -->
+    <section class="form-section" id="get-it">
+      <div class="wrap form-shell">
+        <div class="section-head">
+          <div class="eyebrow">Reserve the promo price</div>
+          <h2>Get VitaGreen delivered.</h2>
+          <p>
+            Leave your details and we'll confirm your order and delivery window.
+          </p>
+        </div>
+        <form
+          class="lead-form"
+          id="leadForm"
+          method="POST"
+          action="https://systeme.io/YOUR-FORM-ACTION-URL-HERE"
+          target="_blank"
+        >
+          <div class="field">
+            <label for="first_name">Full name</label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              autocomplete="tel"
+            />
+          </div>
+          <input
+            type="hidden"
+            name="product"
+            value="VitaGreen Moringa Complex"
+          />
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="justify-content: center; margin-top: 6px"
+          >
+            Reserve at promo price
+          </button>
+          <p class="form-note">
+            Submitting sends your details directly to our team via Systeme.io.
+            No spam, ever.
+          </p>
+          <div id="form-status" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================================================================
+     CROSS-SELL GRID — renders from RANGE_PRODUCTS above
+     ================================================================ -->
+    <section class="range-section" id="range">
+      <div class="section-head">
+        <div class="eyebrow">The full range</div>
+        <h2>Other VitaGreen essentials.</h2>
+      </div>
+      <div class="range-grid" id="rangeGrid"></div>
+    </section>
+
+    <footer class="site">
+      <span>© <span id="year"></span> VitaGreen. All rights reserved.</span>
+      <span
+        >NAFDAC listing pending — for informational purposes, not intended to
+        diagnose or treat.</span
+      >
+    </footer>
+
+    <script>
+      (() => {
+        const cfg = window.PRODUCT_CONFIG;
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        /* ---------------- Countdown (bar + expiry stamp) ---------------- */
+        const target = new Date(cfg.promoEndsISO).getTime();
+        function pad(n) {
+          return String(n).padStart(2, "0");
+        }
+        function tick() {
+          const diff = Math.max(0, target - Date.now());
+          const d = Math.floor(diff / 86400000);
+          const h = Math.floor((diff % 86400000) / 3600000);
+          const m = Math.floor((diff % 3600000) / 60000);
+          const s = Math.floor((diff % 60000) / 1000);
+
+          document.getElementById("cb-d").textContent = pad(d);
+          document.getElementById("cb-h").textContent = pad(h);
+          document.getElementById("cb-m").textContent = pad(m);
+          document.getElementById("cb-s").textContent = pad(s);
+          document.getElementById("stampClock").textContent =
+            `${pad(h)}:${pad(m)}:${pad(s)}`;
+
+          if (diff <= 0) {
+            clearInterval(timer);
+          }
+        }
+        tick();
+        const timer = setInterval(tick, 1000);
+
+        /* ---------------- Cross-sell grid render ---------------- */
+        const grid = document.getElementById("rangeGrid");
+        window.RANGE_PRODUCTS.forEach((p) => {
+          const a = document.createElement("a");
+          a.className = "range-card";
+          a.href = p.href;
+          a.innerHTML = `
+      <div class="thumb">
+        <img src="${p.image}" alt="${p.name}"
+             onerror="this.style.display='none'; this.parentElement.textContent='${p.name} photo';">
+      </div>
+      <div class="rc-body">
+        <div class="name">${p.name}</div>
+        <div class="price">${p.price}</div>
+      </div>`;
+          grid.appendChild(a);
+        });
+
+        /* ---------------- Entry video modal ---------------- */
+        const modal = document.getElementById("videoModal");
+        const modalVideo = document.getElementById("modalVideo");
+        const closeBtn = document.getElementById("closeModal");
+        const unmuteBtn = document.getElementById("unmuteBtn");
+        const SESSION_KEY = "vg_modal_shown_" + cfg.slug;
+
+        function openModal() {
+          modal.classList.add("open");
+          modalVideo.play().catch(() => {
+            /* autoplay may still be blocked; muted loop should work in most browsers */
+          });
+        }
+        function closeModal() {
+          modal.classList.remove("open");
+          modalVideo.pause();
+        }
+
+        if (!sessionStorage.getItem(SESSION_KEY)) {
+          // Small delay so the page paints first — feels intentional, not jarring.
+          setTimeout(openModal, 600);
+          sessionStorage.setItem(SESSION_KEY, "1");
+        }
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeModal();
+        });
+
+        unmuteBtn.addEventListener("click", () => {
+          modalVideo.muted = !modalVideo.muted;
+          unmuteBtn.setAttribute("aria-pressed", String(!modalVideo.muted));
+          unmuteBtn.textContent = modalVideo.muted
+            ? "🔇 Tap for sound"
+            : "🔊 Sound on";
+        });
+
+        document.getElementById("modalCta").addEventListener("click", (e) => {
+          e.preventDefault();
+          closeModal();
+          document
+            .getElementById("get-it")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+
+        /* ---------------- Lead form submit feedback ----------------
+     The form posts directly to Systeme.io (target="_blank") so the
+     client's own confirmation page handles the redirect. This just
+     gives the visitor immediate on-page feedback too. */
+        document.getElementById("leadForm").addEventListener("submit", () => {
+          document.getElementById("form-status").textContent =
+            "Sending your details…";
+        });
+      })();
+    </script>
+  </body>
+</html>
