@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmed | Zara Wellness Hub</title>
+    <meta
+      name="description"
+      content="Thank you for your order with Zara Wellness Hub. Your natural blood pressure formula is being prepared."
+    />
+
+    <!-- ============================================================
+     FONTS
+     ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="thank-you-page">
+    <!-- HEADER -->
+    <header class="site">
+      <div class="wrap site-bar">
+        <div class="brand">Zara<span>Wellness</span>Hub</div>
+      </div>
+    </header>
+
+    <!-- THANK YOU HERO -->
+    <section class="thank-you-hero">
+      <div class="wrap">
+        <div class="success-badge">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <title>check mark</title>
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="eyebrow" style="justify-content: center">
+          Order Successfully Received
+        </div>
+        <h1>Thank You For Your Order!</h1>
+        <p class="thank-you-lede">
+          Your request has been logged with our fulfillment team. We are
+          preparing your natural heart-health package for fast dispatch.
+        </p>
+
+        <!-- PROGRESS BAR TRACKER -->
+        <div class="order-progress-tracker">
+          <div class="step completed">
+            <div class="step-dot">1</div>
+            <span>Order Placed</span>
+          </div>
+          <div class="step active">
+            <div class="step-dot">2</div>
+            <span>Processing</span>
+          </div>
+          <div class="step">
+            <div class="step-dot">3</div>
+            <span>Out For Delivery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT HAPPENS NEXT GRID -->
+    <section class="info-section alternate-bg">
+      <div class="section-head">
+        <div class="eyebrow" style="justify-content: center">Next Steps</div>
+        <h2>What To Expect Now</h2>
+        <p>Here is how we ensure your order reaches your doorstep smoothly.</p>
+      </div>
+
+      <div class="modern-card-grid column-3">
+        <div class="modern-card order-step-card">
+          <span class="step-number">01</span>
+          <h3>Dispatch Confirmation</h3>
+          <p>
+            You will receive an automated notification via SMS and Email
+            containing your delivery schedule and reference details.
+          </p>
+        </div>
+
+        <div class="modern-card order-step-card">
+          <span class="step-number">02</span>
+          <h3>Courier Contact</h3>
+          <p>
+            Our direct courier partner will contact you prior to arrival to
+            confirm your exact delivery window and address.
+          </p>
+        </div>
+
+        <div class="modern-card order-step-card">
+          <span class="step-number">03</span>
+          <h3>Payment & Inspection</h3>
+          <p>
+            Inspect your package upon arrival. If your order includes
+            Pay-on-Delivery, simply pay the driver once verified.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT / HELP CONTAINER -->
+    <section class="info-section">
+      <div class="wrap">
+        <div class="order-support-box">
+          <h3>Have Questions About Your Delivery?</h3>
+          <p>
+            Need to change your address or phone number? Our dedicated customer
+            happiness team is ready to assist you instantly.
+          </p>
+          <div class="support-actions">
+            <a href="mailto:support@zarawellnesshub.com" class="btn btn-primary"
+              >Email Support</a
+            >
+            <a href="index.html" class="btn btn-ghost">Return To Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-base">
+        <span>
+          © <span id="year"></span> Zara Wellness Hub. All rights reserved.
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      (() => {
+        document.getElementById("year").textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
+</html>
